@@ -1,4 +1,65 @@
 {
   "name": "lambda-simulator",
-  "packageManager": "yarn@4.0.0-rc.39"
+  "version": "1.0.0",
+  "description": "lambda simulator",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drmaas/lambda-simulator.git"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc --b",
+    "clean": "npm run clean:core --ws",
+    "ts:config": "npm run ts:config --ws",
+    "test": "jest",
+    "test:report": "npm run test ; npx xunit-viewer -r reports/jest/junit.xml -s -p 3000",
+    "lint": "eslint 'packages/**/*.{js,ts}'",
+    "lint:fix": "eslint 'packages/**/*.{js,ts}' --fix",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/eslint": "^8.44.0",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.6.7",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-inclusive-language": "^2.2.0",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-security": "^1.7.1",
+    "husky": "^8.0.3",
+    "jest": "^29.6.1",
+    "jest-junit": "^16.0.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "lerna": "^7.1.4",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
+    "xunit-viewer": "^10.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,cjs,mjs}": [
+      "npm run lint"
+    ]
+  }
 }

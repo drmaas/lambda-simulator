@@ -1,0 +1,27 @@
+{
+  "name": "@lambda-simulator/server",
+  "version": "1.0.0",
+  "description": "lambda simulator server",
+  "type": "module",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drmaas/lambda-simulator.git"
+  },
+  "scripts": {
+    "build": "tsc --b",
+    "clean:core": "rimraf dist tsconfig.tsbuildinfo",
+    "ts:config": "tsc --project tsconfig.json --showConfig",
+    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "node dist/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/drmaas/lambda-simulator/issues"
+  },
+  "homepage": "https://github.com/drmaas/lambda-simulator#readme",
+  "dependencies": {
+    "@lambda-simulator/common": "^1.0.0"
+  }
+}

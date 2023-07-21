@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "incremental": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lambda-simulator/*": ["./packages/*/src"],
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "packages/common"
+    },
+    {
+      "path": "packages/server"
+    }
+  ]
+}

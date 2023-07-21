@@ -1,0 +1,51 @@
+{
+  "allowedTerms": [],
+  "words": [
+    {
+      "explanation": "To convey the same idea, consider '{{suggestion}}' instead of '{{word}}'.",
+      "suggestions": [
+        "blocklist",
+        "denylist"
+      ],
+      "word": "blacklist"
+    },
+    {
+      "explanation": "To convey the same idea, consider '{{suggestion}}' instead of '{{word}}'.",
+      "suggestions": [
+        "allowlist",
+        "passlist"
+      ],
+      "word": "whitelist"
+    },
+    {
+      "explanation": "Instead of '{{word}}', please use an alternative like '{{suggestion}}'.",
+      "suggestions": [
+        "secondary",
+        "replica"
+      ],
+      "word": "slave"
+    },
+    {
+      "explanation": "Instead of '{{word}}', please use an alternative like '{{suggestion}}'.",
+      "suggestions": [
+        "blockout"
+      ],
+      "word": "blackout"
+    },
+    {
+      "explanation": "Instead of '{{word}}', please use an alternative like '{{suggestion}}'.",
+      "suggestions": [
+        "reduced availability"
+      ],
+      "word": "brownout"
+    },
+    {
+      "explanation": "Instead of '{{word}}', please use '{{suggestion}}'.",
+      "suggestions": [
+        "primary",
+        "main"
+      ],
+      "word": "master"
+    }
+  ]
+}

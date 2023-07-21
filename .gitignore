@@ -11,3 +11,12 @@
 
 #!.yarn/cache
 .pnp.*
+node_modules
+dist
+
+# tests
+reports
+test-report.xml
+
+# history
+.history
