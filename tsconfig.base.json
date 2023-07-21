@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Typescript Node 18.X (ES2022)",
   "compilerOptions": {
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM"],
     "module": "nodenext",
     "target": "ES2022",
     "moduleResolution": "nodenext",

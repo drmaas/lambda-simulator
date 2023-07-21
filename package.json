@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "private": true,
+  "packageManager": "yarn@3.6.1",
   "workspaces": [
     "packages/*"
   ],
@@ -13,18 +14,20 @@
     "url": "https://github.com/drmaas/lambda-simulator.git"
   },
   "scripts": {
-    "build": "npm run clean && tsc --b",
-    "clean": "npm run clean:core --ws",
-    "ts:config": "npm run ts:config --ws",
+    "build": "yarn clean && tsc --b",
+    "clean": "yarn workspaces foreach -vt run clean:core",
+    "ts:config": "yarn workspaces foreach -vt run ts:config",
     "test": "jest",
-    "test:report": "npm run test ; npx xunit-viewer -r reports/jest/junit.xml -s -p 3000",
+    "test:report": "yarn test ; npx xunit-viewer -r reports/jest/junit.xml -s -p 3000",
     "lint": "eslint 'packages/**/*.{js,ts}'",
     "lint:fix": "eslint 'packages/**/*.{js,ts}' --fix",
     "postinstall": "husky install"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-typescript": "^7.22.5",
+    "@types/babel__core": "^7",
     "@types/eslint": "^8.44.0",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.2",
