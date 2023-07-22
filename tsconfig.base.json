@@ -20,10 +20,6 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true
   },
-  "typeRoots": [
-    "node_modules/@types",
-    "./types"
-  ],
   "exclude": [
     "node_modules",
     "dist",

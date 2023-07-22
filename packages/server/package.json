@@ -24,5 +24,8 @@
   "homepage": "https://github.com/drmaas/lambda-simulator#readme",
   "dependencies": {
     "@lambda-simulator/common": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.3"
   }
 }

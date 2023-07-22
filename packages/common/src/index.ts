@@ -1,13 +1,3 @@
-export interface LambdaContext {
-    awsRequestId: string;
-    [key: string]: unknown;
-}
-
-export interface LambdaEvent {
-    headers?: {
-        [key: string]: string | undefined;
-    };
-    [key: string]: unknown;
-}
+export type { LambdaContext, LambdaEvent, LambdaOutput } from './types.js';
 
 export { sample } from './sample.js';
