@@ -1,6 +1,12 @@
 import { IncomingMessage, Server, ServerResponse, createServer } from 'http';
 import querystring from 'querystring';
-import { LambdaContext, LambdaEvent, LambdaOutput } from '@lambda-simulator/common';
+import {
+    LambdaContext,
+    LambdaEvent,
+    LambdaOutput,
+    buildLambdaContext,
+    buildLambdaEvent,
+} from '@lambda-simulator/common';
 
 const getBody = async (req: IncomingMessage): Promise<string | Error> => {
     const promise = new Promise<string>((resolve, reject) => {
@@ -28,10 +34,8 @@ const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
     const body = await getBody(req);
 
     // convert to lambda
-    const context: LambdaContext = {
-        awsRequestId: '',
-    };
-    const event: LambdaEvent = {};
+    const context: LambdaContext = buildLambdaContext();
+    const event: LambdaEvent = buildLambdaEvent();
 
     // execute lambda function
 
