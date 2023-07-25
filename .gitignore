@@ -18,6 +18,7 @@
 .pnp.*
 node_modules
 dist
+tsconfig.tsbuildinfo
 
 # tests
 reports

@@ -3,7 +3,7 @@
   "display": "Typescript Node 18.X (ES2022)",
   "compilerOptions": {
     "lib": ["ES2022", "DOM"],
-    "module": "nodenext",
+    "module": "ESNext",
     "target": "ES2022",
     "moduleResolution": "nodenext",
     "strict": true,
