@@ -2767,7 +2767,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.3":
+"@types/jest-when@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "@types/jest-when@npm:3.5.2"
+  dependencies:
+    "@types/jest": "*"
+  checksum: 106230dd71ee266bbd7620ab339a7305054e56ba7638f0eff9f222e67a959df0ad68a7f0108156c50f7005881bae59cd5c38b3760c101d060cdb3dac9cd77ee2
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:*, @types/jest@npm:^29.5.3":
   version: 29.5.3
   resolution: "@types/jest@npm:29.5.3"
   dependencies:
@@ -7475,6 +7484,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-when@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "jest-when@npm:3.5.2"
+  peerDependencies:
+    jest: ">= 25"
+  checksum: 9ad95552d377ef4d517c96a14c38bd8626d6856f518e7efc8a01d76a45a39d3c52281392c98da781c302114c78cd1ea17556c7f638d49d15971fcce9d58306e8
+  languageName: node
+  linkType: hard
+
 "jest-worker@npm:^29.6.1":
   version: 29.6.1
   resolution: "jest-worker@npm:29.6.1"
@@ -7674,6 +7692,7 @@ __metadata:
     "@types/babel__core": ^7
     "@types/eslint": ^8.44.0
     "@types/jest": ^29.5.3
+    "@types/jest-when": ^3.5.2
     "@types/node": ^20.4.2
     "@typescript-eslint/eslint-plugin": ^6.1.0
     "@typescript-eslint/parser": ^6.1.0
@@ -7692,6 +7711,7 @@ __metadata:
     jest: ^29.6.1
     jest-junit: ^16.0.0
     jest-sonar-reporter: ^2.0.0
+    jest-when: ^3.5.2
     lerna: ^7.1.4
     prettier: ^3.0.0
     rimraf: ^5.0.1
