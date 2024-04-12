@@ -30,7 +30,8 @@ const requestExecutor = (lambdas: Array<Lambda>): RequestListener => {
         // read request
         const url = req.url?.split('?') || ['/', ''];
         const method = req.method || 'GET';
-        const { resource } = req.headers;
+        const lambdaResource = req.headers['x-lambda-resource'];
+        const lambdaName = req.headers['x-lambda-name'];
         const path = url[0];
         const query = querystring.parse(url[1]);
         const requestHeaders = req.headers as unknown as ParsedHeaders;
@@ -40,7 +41,7 @@ const requestExecutor = (lambdas: Array<Lambda>): RequestListener => {
         const context: LambdaContext = buildLambdaContext();
         const event: LambdaEvent = buildLambdaEvent(
             method,
-            resource as string,
+            lambdaResource as string,
             path,
             query,
             requestHeaders,
@@ -48,7 +49,7 @@ const requestExecutor = (lambdas: Array<Lambda>): RequestListener => {
         );
 
         // search lambdas by path
-        const lambda = lambdas.find((entry) => entry.resource === (resource as string));
+        const lambda = lambdas.find((entry) => entry.name === (lambdaName as string));
         if (!lambda) {
             res.writeHead(500);
             res.end('Lambda not found!');
@@ -70,22 +71,36 @@ const requestExecutor = (lambdas: Array<Lambda>): RequestListener => {
             res.setHeader(key, value);
         });
         res.end(body);
-
-        console.log(`${lambda} ${method} ${query} ${path} ${headers} ${body} ${context} ${event} ${output}`);
     };
 };
 
-export const start = (lambdas: Array<Lambda>, port: number = 8000): Server => {
+export const start = async (lambdas: Array<Lambda>, port: number = 8000): Promise<Server> => {
     const host = 'localhost';
 
     const server = createServer(requestExecutor(lambdas));
-    server.listen(port, host, () => {
-        // eslint-disable-next-line no-console
-        console.log(`Server is running on http://${host}:${port}`);
+    return new Promise<Server>((resolve, reject) => {
+        server.listen(port, host, () => {
+            // eslint-disable-next-line no-console
+            console.log(`Server is running on http://${host}:${port}`);
+            resolve(server);
+        });
+        server.on('error', (error: Error) => {
+            console.error(`Server error starting http://${host}:${port}`);
+            reject(error);
+        });
     });
-    return server;
 };
 
-export const stop = (server: Server) => {
-    server.close();
+export const stop = async (server: Server): Promise<Server> => {
+    return new Promise<Server>((resolve, reject) => {
+        server.close((error: Error | undefined) => {
+            if (error) {
+                console.error(error);
+                reject(error);
+            } else {
+                console.log(`Server stopped`);
+                resolve(server);
+            }
+        });
+    });
 };

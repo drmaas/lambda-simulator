@@ -18,7 +18,7 @@ export type LambdaOutput = {
     body?: unknown;
 };
 
-export type Lambda = { resource: string; handler: LambdaHandler };
+export type Lambda = { name: string; handler: LambdaHandler };
 
 export type LambdaHandler = (event: LambdaEvent, context: LambdaContext) => Promise<LambdaOutput>;
 
